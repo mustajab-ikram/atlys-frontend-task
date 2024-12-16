@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* index.css */
+.connection-line {
+  position: absolute;
+  height: 2px;
+  background-color: #93c5fd;
+  transform-origin: left center;
+  z-index: 0;
+}
+
+.connection-horizontal {
+  width: var(--connection-width);
+}
+
+.connection-down {
+  width: var(--connection-width);
+  transform: rotate(var(--rotation-angle));
+}
+
+.connection-up {
+  width: var(--connection-width);
+  transform: rotate(calc(var(--rotation-angle) * -1));
+}
