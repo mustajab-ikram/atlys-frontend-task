@@ -15,9 +15,6 @@ export const useFunctionChain = () => {
   const [functions, setFunctions] =
     useState<FunctionCardData[]>(INITIAL_FUNCTIONS);
   const [inputValue, setInputValue] = useState<number>(2); // Initial input value
-  const [intermediateValues, setIntermediateValues] = useState<
-    Map<number, number>
-  >(new Map());
 
   const evaluateExpression = (equation: string, x: number): number => {
     try {
@@ -133,7 +130,6 @@ export const useFunctionChain = () => {
     getExecutionOrder,
     areAllFunctionsValid,
     getConnections,
-    intermediateValues,
     calculateOutput,
   };
 };
