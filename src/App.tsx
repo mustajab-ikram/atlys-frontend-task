@@ -14,6 +14,9 @@ const App = () => {
 
   const outputValue = calculateOutput(inputValue);
 
+  const firstRowFunctions = functions.filter((f) => [1, 2, 3].includes(f.id));
+  const secondRowFunctions = functions.filter((f) => [4, 5].includes(f.id));
+
   return (
     <div
       className='min-h-screen bg-white p-4'
@@ -24,19 +27,37 @@ const App = () => {
           <InputBox value={inputValue} onChange={setInputValue} />
         </div>
 
-        {/* Function Cards */}
-        <div className='flex gap-10 flex-wrap items-center justify-center'>
-          {functions.map((func) => (
-            <div key={func.id}>
-              <FunctionCard
-                data={func}
-                onChange={(equation, isValid) =>
-                  updateFunction(func.id, equation, isValid)
-                }
-                position={getFunctionPosition(func.id)}
-              />
-            </div>
-          ))}
+        {/* Cards Container */}
+        <div className='relative mx-auto' style={{ width: '1000px' }}>
+          {/* First Row */}
+          <div className='flex justify-between mb-20'>
+            {firstRowFunctions.map((func) => (
+              <div key={func.id}>
+                <FunctionCard
+                  data={func}
+                  onChange={(equation, isValid) =>
+                    updateFunction(func.id, equation, isValid)
+                  }
+                  position={getFunctionPosition(func.id)}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Second Row */}
+          <div className='flex justify-center gap-[200px]'>
+            {secondRowFunctions.map((func) => (
+              <div key={func.id}>
+                <FunctionCard
+                  data={func}
+                  onChange={(equation, isValid) =>
+                    updateFunction(func.id, equation, isValid)
+                  }
+                  position={getFunctionPosition(func.id)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Output Box positioned after last card */}
