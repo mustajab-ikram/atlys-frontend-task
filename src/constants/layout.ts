@@ -1,4 +1,4 @@
-import { Position } from "../types";
+import { Position } from '../types';
 
 export const LAYOUT_CONFIG = {
   CARD_WIDTH: 280,

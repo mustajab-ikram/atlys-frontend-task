@@ -1,5 +1,5 @@
-import React from "react";
-import { FunctionChain, Position } from "../types";
+import React from 'react';
+import { FunctionChain, Position } from '../types';
 
 interface ConnectionLinesProps {
   functionPositions: Map<number, Position>;
@@ -19,7 +19,7 @@ const ConnectionLines: React.FC<ConnectionLinesProps> = ({
   };
 
   return (
-    <svg className="absolute inset-0 w-full h-full pointer-events-none">
+    <svg className='absolute inset-0 w-full h-full pointer-events-none'>
       {Array.from(functionChain.entries()).map(([id, node]) => {
         if (node.nextFunctionId !== null) {
           const startPos = functionPositions.get(id);
@@ -29,9 +29,9 @@ const ConnectionLines: React.FC<ConnectionLinesProps> = ({
               <path
                 key={`${id}-${node.nextFunctionId}`}
                 d={drawPath(startPos, endPos)}
-                stroke="#93C5FD"
-                strokeWidth="2"
-                fill="none"
+                stroke='#93C5FD'
+                strokeWidth='2'
+                fill='none'
               />
             );
           }

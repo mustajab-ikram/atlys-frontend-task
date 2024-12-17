@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { FunctionCardData, Position } from "../types";
-import { validateExpression } from "../utils";
-import { FUNCTION_POSITIONS } from "../constants/positions";
+import { useState } from 'react';
+import { FunctionCardData, Position } from '../types';
+import { validateExpression } from '../utils';
+import { FUNCTION_POSITIONS } from '../constants/positions';
 
 const INITIAL_FUNCTIONS: FunctionCardData[] = [
-  { id: 1, equation: "x^2", nextFunctionId: 2, isValid: true },
-  { id: 2, equation: "2x+4", nextFunctionId: 4, isValid: true },
-  { id: 4, equation: "x-2", nextFunctionId: 5, isValid: true },
-  { id: 5, equation: "x/2", nextFunctionId: 3, isValid: true },
-  { id: 3, equation: "x^2+20", nextFunctionId: null, isValid: true },
+  { id: 1, equation: 'x^2', nextFunctionId: 2, isValid: true },
+  { id: 2, equation: '2x+4', nextFunctionId: 4, isValid: true },
+  { id: 3, equation: 'x^2+20', nextFunctionId: null, isValid: true },
+  { id: 4, equation: 'x-2', nextFunctionId: 5, isValid: true },
+  { id: 5, equation: 'x/2', nextFunctionId: 3, isValid: true },
 ];
 
 export const useFunctionChain = () => {
@@ -21,9 +21,9 @@ export const useFunctionChain = () => {
 
   const evaluateExpression = (equation: string, x: number): number => {
     try {
-      let processedEquation = equation.replace(/(\d)x/g, "$1*x");
+      let processedEquation = equation.replace(/(\d)x/g, '$1*x');
 
-      processedEquation = processedEquation.replace(/x\^(\d+)/g, "(x**$1)");
+      processedEquation = processedEquation.replace(/x\^(\d+)/g, '(x**$1)');
 
       const finalEquation = processedEquation.replace(/x/g, x.toString());
 
@@ -32,7 +32,7 @@ export const useFunctionChain = () => {
       const result = eval(finalEquation);
       return Number(result.toFixed(2));
     } catch (error) {
-      console.error("Error evaluating expression:", error);
+      console.error('Error evaluating expression:', error);
       return 0;
     }
   };
@@ -42,7 +42,7 @@ export const useFunctionChain = () => {
 
     const executionOrder = [1, 2, 4, 5, 3];
 
-    console.log("Starting calculation with input:", input);
+    console.log('Starting calculation with input:', input);
 
     for (const id of executionOrder) {
       const currentFunction = functions.find((f) => f.id === id);

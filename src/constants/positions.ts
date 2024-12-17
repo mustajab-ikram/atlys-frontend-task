@@ -1,4 +1,4 @@
-import { Position } from "../types";
+import { Position } from '../types';
 
 export const FUNCTION_POSITIONS = new Map<number, Position>([
   [1, { x: 50, y: 50 }], // First card
