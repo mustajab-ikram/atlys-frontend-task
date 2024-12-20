@@ -6,7 +6,6 @@ const App = () => {
   const {
     functions,
     updateFunction,
-    getFunctionPosition,
     inputValue,
     setInputValue,
     calculateOutput,
@@ -23,7 +22,7 @@ const App = () => {
       style={{ height: '100vh', width: '100vw' }}
     >
       <div className='flex items-center justify-between w-full h-full'>
-        <div className='' style={{ left: '0px' }}>
+        <div style={{ left: '0px' }}>
           <InputBox value={inputValue} onChange={setInputValue} />
         </div>
 
@@ -38,7 +37,6 @@ const App = () => {
                   onChange={(equation, isValid) =>
                     updateFunction(func.id, equation, isValid)
                   }
-                  position={getFunctionPosition(func.id)}
                 />
               </div>
             ))}
@@ -53,7 +51,6 @@ const App = () => {
                   onChange={(equation, isValid) =>
                     updateFunction(func.id, equation, isValid)
                   }
-                  position={getFunctionPosition(func.id)}
                 />
               </div>
             ))}
@@ -61,7 +58,7 @@ const App = () => {
         </div>
 
         {/* Output Box positioned after last card */}
-        <div className='' style={{ right: '-150px' }}>
+        <div style={{ right: '-150px' }}>
           <OutputBox value={outputValue} />
         </div>
       </div>

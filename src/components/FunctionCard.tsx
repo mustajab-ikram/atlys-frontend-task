@@ -3,7 +3,7 @@ import { FunctionCardProps } from '../types';
 import { getExpressionError } from '../utils';
 import DraggableDots from './DraggableDots';
 
-const FunctionCard: FC<FunctionCardProps> = ({ data, onChange, position }) => {
+const FunctionCard: FC<FunctionCardProps> = ({ data, onChange }) => {
   const [error, setError] = useState<string | null>(null);
 
   const handleEquationChange = (value: string) => {
@@ -13,10 +13,7 @@ const FunctionCard: FC<FunctionCardProps> = ({ data, onChange, position }) => {
   };
 
   return (
-    <div
-      className=' bg-white rounded-xl border border-gray-100 shadow-sm p-6 w-[280px]'
-      style={{ left: position.x, top: position.y }}
-    >
+    <div className=' bg-white rounded-xl border border-gray-100 shadow-sm p-6 w-[280px]'>
       {/* Card Header */}
       <div className='mb-4 flex items-center gap-2 text-[hsla(0,0%,65%,1)]'>
         <DraggableDots
